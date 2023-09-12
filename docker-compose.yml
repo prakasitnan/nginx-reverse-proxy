@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  reverse_proxy:
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - /Users/prakasit/Documents/Personal/Projects/Workshops/docker/nginx-reveres-proxy/nginx/nginx.conf:/etc/nginx/nginx.conf
+    #   - /Users/prakasit/Documents/Personal/Projects/Workshops/docker/nginx-reveres-proxy/nginx/index.html:/var/www/html/
+    depends_on:
+      - webpage1
+      - webpage2
+    networks:
+      - my-networks
+  webpage1:
+    image: nginx
+    container_name: webpage1
+    volumes:
+      - ./page1:/usr/share/nginx/html
+    networks:
+      - my-networks
+  webpage2:
+    image: nginx
+    container_name: webpage2
+    volumes:
+      - ./page2:/usr/share/nginx/html
+    networks:
+      - my-networks
+
+networks:
+  my-networks:

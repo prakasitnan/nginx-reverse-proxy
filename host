@@ -1,2 +1,4 @@
-127.0.0.1       local.webpage1.com
-127.0.0.1       local.webpage2.com
+# /etc/hots
+
+127.0.0.1 local.webpage1.com
+127.0.0.1 local.webpage2.com
